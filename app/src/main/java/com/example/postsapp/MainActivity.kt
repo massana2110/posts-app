@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.postsapp.databinding.ActivityMainBinding
 
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
         val appBarConfiguration = AppBarConfiguration(navController.graph)
 
+        setupActionBarWithNavController(navController, appBarConfiguration)
         _binding.mainToolbar.setupWithNavController(navController, appBarConfiguration)
     }
 }
