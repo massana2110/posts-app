@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="post"
+            type="com.example.postsapp.models.Post" />
+    </data>
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/postItem"
         android:layout_width="match_parent"
@@ -21,22 +27,24 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/medium_margin"
                 android:layout_marginTop="@dimen/small_margin"
+                android:text="@{post.title}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Title" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/postBodyTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/medium_margin"
                 android:layout_marginTop="@dimen/small_margin"
+                android:text="@{post.body}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/postTitle"
                 tools:text="@tools:sample/full_names" />
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/albumPostBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/small_margin"
@@ -47,19 +55,21 @@
                 android:src="@drawable/ic_album"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/postBodyTxt" />
 
             <ImageButton
+                android:id="@+id/commentsPostBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/medium_margin"
                 android:background="@color/white"
+                android:contentDescription="@string/comments_action_cd"
                 android:minWidth="48dp"
                 android:minHeight="48dp"
                 android:src="@drawable/ic_comments"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageButton"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintStart_toEndOf="@+id/albumPostBtn"
+                app:layout_constraintTop_toBottomOf="@+id/postBodyTxt" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
