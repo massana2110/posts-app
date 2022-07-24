@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/postsFragment"
         android:name="com.example.postsapp.views.posts.PostsFragment"
-        android:label="fragment_posts"
-        tools:layout="@layout/fragment_posts" >
+        android:label="Posts"
+        tools:layout="@layout/fragment_posts">
         <action
             android:id="@+id/action_postsFragment_to_albumFragment"
             app:destination="@id/albumFragment" />
@@ -20,11 +20,11 @@
     <fragment
         android:id="@+id/albumFragment"
         android:name="com.example.postsapp.views.album.AlbumFragment"
-        android:label="fragment_album"
+        android:label="Album"
         tools:layout="@layout/fragment_album" />
     <fragment
         android:id="@+id/commentsFragment"
         android:name="com.example.postsapp.views.comments.CommentsFragment"
-        android:label="fragment_comments"
+        android:label="Comments"
         tools:layout="@layout/fragment_comments" />
 </navigation>
