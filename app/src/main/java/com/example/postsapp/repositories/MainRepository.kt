@@ -3,6 +3,7 @@ package com.example.postsapp.repositories
 import com.example.postsapp.api.PostsApi
 import com.example.postsapp.api.SafeApiRequest
 import com.example.postsapp.models.Comment
+import com.example.postsapp.models.Image
 import com.example.postsapp.models.Post
 
 /**
@@ -21,4 +22,7 @@ class MainRepository : SafeApiRequest() {
         return apiRequest { PostsApi.retrofitService.getCommentsByPostId(id) }
     }
 
+    suspend fun getAllPhotosByPost(id: Int) : List<Image> {
+        return apiRequest { PostsApi.retrofitService.getPhotosByPostId(id) }
+    }
 }

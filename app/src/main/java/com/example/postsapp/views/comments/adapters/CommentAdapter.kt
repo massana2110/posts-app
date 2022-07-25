@@ -33,5 +33,4 @@ class CommentAdapter(
     }
 
     override fun getItemCount(): Int = comments.size
-
 }

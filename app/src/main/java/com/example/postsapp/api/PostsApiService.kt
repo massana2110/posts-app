@@ -1,6 +1,7 @@
 package com.example.postsapp.api
 
 import com.example.postsapp.models.Comment
+import com.example.postsapp.models.Image
 import com.example.postsapp.models.Post
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -34,7 +35,10 @@ interface PostsApiService {
         @Path("id") id: Int
     ) : Response<List<Comment>>
 
-
+    @GET("posts/{id}/photos")
+    suspend fun getPhotosByPostId(
+        @Path("id") id: Int
+    ) : Response<List<Image>>
 }
 
 // Singleton instance of retrofit

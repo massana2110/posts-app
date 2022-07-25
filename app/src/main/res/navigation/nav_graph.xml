@@ -21,7 +21,12 @@
         android:id="@+id/albumFragment"
         android:name="com.example.postsapp.views.album.AlbumFragment"
         android:label="Album"
-        tools:layout="@layout/fragment_album" />
+        tools:layout="@layout/fragment_album" >
+        <argument
+            android:name="postId"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
     <fragment
         android:id="@+id/commentsFragment"
         android:name="com.example.postsapp.views.comments.CommentsFragment"

@@ -77,7 +77,8 @@ class PostsFragment : Fragment(), PostItemClickListener {
     }
 
     override fun onPostAlbumItemClick(view: View, id: Int) {
-        TODO("Not yet implemented")
+        findNavController().navigate(
+            PostsFragmentDirections.actionPostsFragmentToAlbumFragment(postId = id)
+        )
     }
-
 }
