@@ -34,7 +34,9 @@ class PostsFragment : Fragment(), PostItemClickListener {
         )
 
         val factory = PostsViewModelFactory(MainRepository())
-        _postsViewModel = ViewModelProvider(this, factory)[PostsViewModel::class.java]
+        _postsViewModel = ViewModelProvider(requireActivity(), factory)[PostsViewModel::class.java]
+
+        postsObserver()
 
         return _binding.root
     }
