@@ -16,6 +16,12 @@ import com.example.postsapp.repositories.MainRepository
 import com.example.postsapp.views.posts.adapters.PostAdapter
 import com.example.postsapp.views.posts.adapters.PostItemClickListener
 
+/**
+ * Author: David Massana [david.massana.10@gmail.com]
+ * Creation Date: July 23rd, 2022
+ * Description: Post Fragment Screen, this class inflate the post fragment layout, manage the
+ * lifecycle of the screen, init the Post ViewModel with its livedata variables.
+ */
 class PostsFragment : Fragment(), PostItemClickListener {
 
     private lateinit var _binding: FragmentPostsBinding
@@ -33,6 +39,7 @@ class PostsFragment : Fragment(), PostItemClickListener {
             false
         )
 
+        // init post view model variable
         val factory = PostsViewModelFactory(MainRepository())
         _postsViewModel = ViewModelProvider(requireActivity(), factory)[PostsViewModel::class.java]
 
@@ -41,6 +48,10 @@ class PostsFragment : Fragment(), PostItemClickListener {
         return _binding.root
     }
 
+    /**
+     * Definition of post list observer.
+     * When the post list value change, this observer is in charge of refreshing the UI
+     */
     private fun postsObserver() {
         _postsViewModel.posts.observe(viewLifecycleOwner) { postsList ->
             if (!postsList.isNullOrEmpty()) {
@@ -59,8 +70,14 @@ class PostsFragment : Fragment(), PostItemClickListener {
         }
     }
 
-    override fun onPostItemClick(view: View, id: Int) {
-        Log.d("PostFragment", "Id: $id")
+    override fun onPostCommentItemClick(view: View, id: Int) {
+        findNavController().navigate(
+            PostsFragmentDirections.actionPostsFragmentToCommentsFragment(postId = id)
+        )
+    }
+
+    override fun onPostAlbumItemClick(view: View, id: Int) {
+        TODO("Not yet implemented")
     }
 
 }

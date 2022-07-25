@@ -27,23 +27,20 @@ class PostAdapter(
     )
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-        holder.postItemBinding.post = posts[position]
-        holder.postItemBinding.albumPostBtn.setOnClickListener {
-            posts[position].id?.let { id ->
-                listener.onPostItemClick(holder.postItemBinding.albumPostBtn,
-                    id
-                )
+        holder.postItemBinding.apply {
+            post = posts[position]
+            albumPostBtn.setOnClickListener {
+                posts[position].id?.let { id ->
+                    listener.onPostAlbumItemClick(holder.postItemBinding.albumPostBtn, id)
+                }
             }
-        }
-        holder.postItemBinding.commentsPostBtn.setOnClickListener {
-            posts[position].id?.let { id ->
-                listener.onPostItemClick(holder.postItemBinding.commentsPostBtn,
-                    id
-                )
+            commentsPostBtn.setOnClickListener {
+                posts[position].id?.let { id ->
+                    listener.onPostCommentItemClick(holder.postItemBinding.commentsPostBtn, id)
+                }
             }
         }
     }
 
     override fun getItemCount(): Int = posts.size
-
 }

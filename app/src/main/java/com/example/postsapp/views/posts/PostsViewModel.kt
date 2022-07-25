@@ -17,8 +17,6 @@ class PostsViewModel(
     private val mainRepository: MainRepository
 ) : ViewModel() {
 
-    // var apiResultsListener: ApiResults? = null
-
     private var _posts = MutableLiveData<List<Post>>()
     val posts: LiveData<List<Post>>
         get() = _posts
